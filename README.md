@@ -1,10 +1,16 @@
-# React Hooks Axios Tutorial
+# React Hooks Axios CRUD
 
 In this tutorial, we'll make a simple CRUD app using Hoooks and axios to call a backend APIs.
 
+# install
+yarn install
+
+# run
+yarn start
+
 ## Author
 
-- [Ivan](https://github.com/ivanchenoweth)
+- [Ivan Chenoweth](https://github.com/ivanchenoweth)
 
 ## License
 
