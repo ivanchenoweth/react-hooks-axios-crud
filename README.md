@@ -1,6 +1,6 @@
 # React Hooks Axios CRUD
 
-# Descipcion
+# Descripcion
 
 React CRUD WebApp : Hooks, axios
 
