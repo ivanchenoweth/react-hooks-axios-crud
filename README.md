@@ -1,6 +1,6 @@
 # React Hooks Axios CRUD
 
-In this tutorial, we'll make a simple CRUD app using Hoooks and axios to call a backend APIs.
+Esta es una prueba de concepto de una webapp que ejecuta un simple CRUD usando React Hooks y axios para llamar un backend API REST.
 
 # install
 yarn install
@@ -14,4 +14,4 @@ yarn start
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+Este es un proyecto de codigo abierto disponible bajo [MIT License](LICENSE).
