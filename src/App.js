@@ -4,6 +4,9 @@ import AddUserForm from "./forms/AddUserForm";
 import EditUserForm from "./forms/EditUserForm";
 import UserTable from "./tables/UserTable";
 
+//const APIURL = 'http://localhost:3000/api/v1';
+const APIURL = 'https://peaceful-ocean-48025.herokuapp.com/api/v1';
+
 const App = () => {
 
   const [users, setUsers] = useState([]); 
@@ -17,7 +20,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'http://localhost:3000/api/v1/artists',
+        `${APIURL}/artists`,
       );
       setUsers(result.data);
       console.log(result);
@@ -29,7 +32,7 @@ const App = () => {
   function addUser(user) {
     const updateData = async () => {
       const result = await axios.post(
-        `http://localhost:3000/api/v1/artists`, user
+        `${APIURL}/artists`, user
       );
       console.log(result);
       setUsers([...users, user]);
@@ -44,7 +47,7 @@ const App = () => {
     setUsers(users.filter((user) => user.id !== id));
     const deleteData = async () => {
       const result = await axios.delete(
-        `http://localhost:3000/api/v1/artists/${id}`
+        `${APIURL}/artists/${id}`
       );
       console.log(result);
     };
@@ -55,7 +58,7 @@ const App = () => {
     setEditing(false);
     const updateData = async () => {
       const result = await axios.put(
-        `http://localhost:3000/api/v1/artists/${id}`, updatedUser
+        `${APIURL}/artists/${id}`, updatedUser
       );
       console.log(result);
       setUsers(users.map((user) => (user.id === id ? updatedUser : user))); 
