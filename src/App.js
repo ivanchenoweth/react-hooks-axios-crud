@@ -14,6 +14,11 @@ const App = () => {
   const [editing, setEditing] = useState(false);
 
   // Initial ajax call to fill setUsers
+  console.log('APP process');
+
+
+  
+  console.log(process.env);
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
@@ -71,7 +76,9 @@ const App = () => {
   return (
     <div className="container">
       <h1>CRUD App with Hooks+Axios</h1>
-
+      <h6>Environment NODE_ENV: {process.env.NODE_ENV}</h6>
+      <h6>Environment REACT_APP_STAGE: {process.env.REACT_APP_STAGE}</h6>
+      <h6>Environment REACT_APP_BACKEND_URL: {process.env.REACT_APP_BACKEND_URL}</h6>
       <div className="flex-row">
         <div className="flex-large">
           {editing ? (
