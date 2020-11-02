@@ -14,12 +14,10 @@ const App = () => {
   const [editing, setEditing] = useState(false);
 
   // Initial ajax call to fill setUsers
-  console.log('APP process');
-  console.log(process.env);
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'http://localhost:3000/api/v1/artists',
+        `${process.env.REACT_APP_API_URL}/artists`,
       );
       setUsers(result.data);
       console.log(result);
@@ -31,7 +29,7 @@ const App = () => {
   function addUser(user) {
     const updateData = async () => {
       const result = await axios.post(
-        `http://localhost:3000/api/v1/artists`, user
+        `${process.env.REACT_APP_API_URL}/artists`, user
       );
       console.log(result);
       setUsers([...users, user]);
@@ -46,7 +44,7 @@ const App = () => {
     setUsers(users.filter((user) => user.id !== id));
     const deleteData = async () => {
       const result = await axios.delete(
-        `http://localhost:3000/api/v1/artists/${id}`
+        `${process.env.REACT_APP_API_URL}/artists/${id}`
       );
       console.log(result);
     };
@@ -57,7 +55,7 @@ const App = () => {
     setEditing(false);
     const updateData = async () => {
       const result = await axios.put(
-        `http://localhost:3000/api/v1/artists/${id}`, updatedUser
+        `${process.env.REACT_APP_API_URL}/artists/${id}`, updatedUser
       );
       console.log(result);
       setUsers(users.map((user) => (user.id === id ? updatedUser : user))); 
@@ -77,7 +75,6 @@ const App = () => {
       <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
       <h6>Environment REACT_APP_API_URL: {process.env.REACT_APP_API_URL}</h6>
       <h6>Environment REACT_APP_STAGE: {process.env.REACT_APP_STAGE}</h6>
-      <h6>Environment REACT_APP_BACKEND_URL: {process.env.REACT_APP_BACKEND_URL}</h6>
       <div className="flex-row">
         <div className="flex-large">
           {editing ? (
