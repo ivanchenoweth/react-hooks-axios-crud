@@ -26,6 +26,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "homepage": "https://github.com/ivanchenoweth/react-hooks-axios-crud"
+  ]
 }

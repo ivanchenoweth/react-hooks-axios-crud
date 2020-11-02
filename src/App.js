@@ -20,7 +20,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        `${APIURL}/artists`,
+        `${process.env.REACT_APP_API_URL}/artists`,
       );
       setUsers(result.data);
       console.log(result);
@@ -32,7 +32,7 @@ const App = () => {
   function addUser(user) {
     const updateData = async () => {
       const result = await axios.post(
-        `${APIURL}/artists`, user
+        `${process.env.REACT_APP_API_URL}/artists`, user
       );
       console.log(result);
       setUsers([...users, user]);
@@ -47,7 +47,7 @@ const App = () => {
     setUsers(users.filter((user) => user.id !== id));
     const deleteData = async () => {
       const result = await axios.delete(
-        `${APIURL}/artists/${id}`
+        `${process.env.REACT_APP_API_URL}/artists/${id}`
       );
       console.log(result);
     };
@@ -58,7 +58,7 @@ const App = () => {
     setEditing(false);
     const updateData = async () => {
       const result = await axios.put(
-        `${APIURL}/artists/${id}`, updatedUser
+        `${process.env.REACT_APP_API_URL}/artists/${id}`, updatedUser
       );
       console.log(result);
       setUsers(users.map((user) => (user.id === id ? updatedUser : user))); 
@@ -73,8 +73,12 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>CRUD App with Hooks+Axios</h1>
-
+      <h1>CRUD App with Hooks+Axios V1.1</h1>
+      <h2>Test deploy 1</h2>
+      <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
+      <h6>Environment REACT_APP_API_URL: {process.env.REACT_APP_API_URL}</h6>
+      <h6>Environment CONTEXT: {process.env.CONTEXT}</h6>
+      <h6>Environment REACT_APP_STAGE: {process.env.REACT_APP_STAGE}</h6>
       <div className="flex-row">
         <div className="flex-large">
           {editing ? (
