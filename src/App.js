@@ -73,8 +73,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>CRUD App with Hooks+Axios V1.1</h1>
-      <h2>Test deploy 1 to QA staging</h2>
+      <h1>CRUD App with Hooks+Axios V1.2</h1>
+      <h2>CICD netifly</h2>
       <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
       <h6>Environment REACT_APP_API_URL: {process.env.REACT_APP_API_URL}</h6>
       <h6>Environment REACT_APP_STAGE: {process.env.REACT_APP_STAGE}</h6>
