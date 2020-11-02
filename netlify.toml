@@ -2,7 +2,7 @@
 # All deploys from the main repository branch
 # will inherit these settings.
 [context.production]
-  command = "make production"
+  #command = "make production"
   [context.production.environment]
     ACCESS_TOKEN = "super secret"
 
@@ -16,13 +16,13 @@
 # All deploys that are not from a pull/merge request
 # or from the production branch will inherit these settings.
 [context.branch-deploy]
-  command = "make staging"
+  #command = "make staging"
 
 # Specific branch context:
 # Deploys from this branch will take these settings
 # and override their current ones.
 [context.feature]
-  command = "make feature"
+  #command = "make feature"
 
 [context."features/branch"]
-  command = "gulp"
+  #command = "gulp"
