@@ -15,9 +15,6 @@ const App = () => {
 
   // Initial ajax call to fill setUsers
   console.log('APP process');
-
-
-  
   console.log(process.env);
   useEffect(() => {
     const fetchData = async () => {
@@ -75,7 +72,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>CRUD App with Hooks+Axios</h1>
+      <h1>CRUD App with Hooks+Axios V1.1</h1>
+      <h2>Test deploy 1</h2>
       <h6>Environment NODE_ENV: {process.env.NODE_ENV}</h6>
       <h6>Environment REACT_APP_STAGE: {process.env.REACT_APP_STAGE}</h6>
       <h6>Environment REACT_APP_BACKEND_URL: {process.env.REACT_APP_BACKEND_URL}</h6>
