@@ -1,6 +1,8 @@
 # React Hooks Axios CRUD
 
-Esta es una prueba de concepto de una webapp que ejecuta un simple CRUD usando React Hooks y axios para llamar un backend API REST.
+# Descripcion
+
+React CRUD WebApp : Hooks, axios
 
 # install
 yarn install
