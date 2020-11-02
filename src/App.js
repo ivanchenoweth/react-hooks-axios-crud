@@ -74,7 +74,7 @@ const App = () => {
       <h2>Test deploy 1</h2>
       <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
       <h6>Environment REACT_APP_API_URL: {process.env.REACT_APP_API_URL}</h6>
-      <h6>Environment CONTEXT: {process.env.CONTEXT}</h6>
+      <h6>Environment REACT_APP_STAGE: {process.env.REACT_APP_STAGE}</h6>
       <div className="flex-row">
         <div className="flex-large">
           {editing ? (
