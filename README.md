@@ -10,7 +10,7 @@ yarn install
 # run
 yarn start
 
-# run demo heroku
+# run demo
 
 [https://react-hooks-axios-crud.netlify.app](https://react-hooks-axios-crud.netlify.app)
 
