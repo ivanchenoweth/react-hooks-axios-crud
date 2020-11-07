@@ -1,6 +1,6 @@
 {
-  "name": "react-hooks",
-  "version": "0.1.1",
+  "name": "react-hooks-axios",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "axios": "^0.20.0",
