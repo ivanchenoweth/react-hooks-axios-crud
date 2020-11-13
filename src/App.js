@@ -16,7 +16,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(initialFormState);
   const [editing, setEditing] = useState(false);
 
-  // Initial ajax call to fill setUsers
+  // Initial ajax call to fill setUsers ... change one only if [] 
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
@@ -73,11 +73,11 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>CRUD App with Hooks+Axios V1.1</h1>
-      <h2>Test deploy 1 to QA staging</h2>
+      <h1>CRUD App with Hooks+Axios V1.2.3</h1>
+      <h2>CICD netifly</h2>
       <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
-      <h6>Environment REACT_APP_API_URL: {process.env.REACT_APP_API_URL}</h6>
-      <h6>Environment REACT_APP_STAGE: {process.env.REACT_APP_STAGE}</h6>
+      <h6>Environment REACT_APP_API_URL from .env or netlify.toml: {process.env.REACT_APP_API_URL}</h6>
+      <h6>Environment REACT_APP_STAGE .env or netlify.toml: {process.env.REACT_APP_STAGE}</h6>
       <div className="flex-row">
         <div className="flex-large">
           {editing ? (
