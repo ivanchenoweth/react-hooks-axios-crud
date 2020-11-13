@@ -4,9 +4,6 @@ import AddUserForm from "./forms/AddUserForm";
 import EditUserForm from "./forms/EditUserForm";
 import UserTable from "./tables/UserTable";
 
-//const APIURL = 'http://localhost:3000/api/v1';
-const APIURL = 'https://peaceful-ocean-48025.herokuapp.com/api/v1';
-
 const App = () => {
 
   const [users, setUsers] = useState([]); 
