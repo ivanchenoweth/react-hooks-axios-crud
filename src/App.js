@@ -1,76 +1,84 @@
 import React, { useState, Fragment, useEffect } from "react";
-import axios from "axios";
 import AddUserForm from "./forms/AddUserForm";
 import EditUserForm from "./forms/EditUserForm";
 import UserTable from "./tables/UserTable";
+import UsersXhr from "./xhr/UsersXhr";
 
 const App = () => {
-
+  // Setting state
   const [users, setUsers] = useState([]); 
   const initialFormState = { id: null, firstName: "", lastName: "" };
-
-  // Setting state
   const [currentUser, setCurrentUser] = useState(initialFormState);
   const [editing, setEditing] = useState(false);
 
-  // Initial ajax call to fill setUsers ... change one only if [] 
   useEffect(() => {
+    // Run once, after mounting
     const fetchData = async () => {
-      const result = await axios(
-        `${process.env.REACT_APP_API_URL}/artists`,
-      );
-      setUsers(result.data);
-      console.log(result);
+      try {
+        // await only works inside an async function.
+        const res = await UsersXhr.getAllUsersXhr();
+        setUsers(res.data);
+      } catch (e) {
+        console.log(e);
+      }
     };
     fetchData();
-  }, []);
+  }, 
+    [] // dependencies [] is renderings only if the 'any []' state value changes
+  ); 
 
-  // CRUD operations
   function addUser(user) {
-    const updateData = async () => {
-      const result = await axios.post(
-        `${process.env.REACT_APP_API_URL}/artists`, user
-      );
-      console.log(result);
-      setUsers([...users, user]);
+    const tryAddUser = async() => {
+      try {        
+        let res = await UsersXhr.addUserXhr(user);
+        user.id = res.data.id; // assign the new id to the user
+        setUsers([...users, user]);  // all the user + the new user to the states
+      } catch (e) {
+        console.log(e);
+      }
     };
-    updateData();
-
+    tryAddUser();
   }
 
   const deleteUser = (id) => {
-    console.log(id);
-    setEditing(false);
-    setUsers(users.filter((user) => user.id !== id));
-    const deleteData = async () => {
-      const result = await axios.delete(
-        `${process.env.REACT_APP_API_URL}/artists/${id}`
-      );
-      console.log(result);
-    };
+    const deleteData = async() => {
+      try {  
+        await UsersXhr.deleteUser(id);
+        setEditing(false);
+        setUsers(users.filter((user) => user.id !== id));  // delete the user in the state
+      } catch (e) {
+        console.log(e);
+      }      
+    }
     deleteData();
   };
+    
 
-  const updateUser = (id, updatedUser) => {
-    setEditing(false);
+  const updateUser = (id, updatedUser) => {    
     const updateData = async () => {
-      const result = await axios.put(
-        `${process.env.REACT_APP_API_URL}/artists/${id}`, updatedUser
-      );
-      console.log(result);
-      setUsers(users.map((user) => (user.id === id ? updatedUser : user))); 
-    };
+      try {  
+        await UsersXhr.updateUserXhr(updatedUser);              
+        setUsers(users.map((user) => (user.id === id ? updatedUser : user))); 
+      }  catch (e) {
+        console.log(e);
+      } 
+    }
+    setEditing(false);
     updateData();
   };
 
   const editRow = (user) => {
     setEditing(true);
-    setCurrentUser({ id: user.id, firstName: user.firstName, lastName: user.lastName });
+    setCurrentUser({ 
+      id: user.id, 
+      firstName: user.firstName, 
+      lastName: user.lastName }
+    );
   };
 
   return (
     <div className="container">
-      <h1>CRUD App with Hooks+Axios+storybook V1.2.4</h1>
+      <h1>CRUD App with Hooks+Axios+storybook V1.2.5</h1>
       <h2>CICD with netifly</h2>
       <small>You are running this application in <b>{process.env.NODE_ENV}</b> mode.</small>
       <h6>Environment REACT_APP_API_URL from .env or netlify.toml: {process.env.REACT_APP_API_URL}</h6>
