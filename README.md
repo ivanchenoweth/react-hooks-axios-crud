@@ -17,3 +17,7 @@ yarn start
 ## License
 
 Este es un proyecto de codigo abierto disponible bajo [MIT License](LICENSE).
+
+## Backend endpoint
+https://api-crud-orm-sequelize-cors.herokuapp.com/api/v1
+
